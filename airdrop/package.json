@@ -1,0 +1,25 @@
+{
+  "name": "airdrop",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "keygen": "tsx ./src/keygen.ts",
+    "airdrop": "tsx ./src/airdrop.ts",
+    "transfer": "tsx ./src/transfer.ts",
+    "enroll": "tsx ./src/enroll.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.13.13",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.0",
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0"
+  }
+}
