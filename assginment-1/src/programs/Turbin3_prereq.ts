@@ -1,281 +1,939 @@
 export type Turbin3Prereq = {
-  address: "Trb3aEx85DW1cEEvoqEaBkMn1tfmNEEEPaKzLSu4YAv";
-  metadata: {
-    name: "turbine_prereq";
-    version: "0.1.0";
-    spec: "0.1.0";
-    description: "Created with Anchor";
-  };
-  instructions: [
+  "address": "TRBZyQHB3m68FGeVsqTK39Wm4xejadjVhP5MAZaKWDM",
+  "metadata": {
+    "name": "q3_pre_reqs_rs",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
     {
-      name: "clean";
-      discriminator: [250, 191, 56, 128, 150, 251, 1, 103];
-      accounts: [
+      "name": "close",
+      "discriminator": [
+        98,
+        165,
+        201,
+        177,
+        108,
+        65,
+        206,
+        96
+      ],
+      "accounts": [
         {
-          name: "signer";
-          writable: true;
-          signer: true;
+          "name": "user",
+          "writable": true
         },
         {
-          name: "prereq";
-          writable: true;
-        }
-      ];
-      args: [];
-    },
-    {
-      name: "submit";
-      discriminator: [88, 166, 102, 181, 162, 127, 170, 48];
-      accounts: [
-        {
-          name: "signer";
-          writable: true;
-          signer: true;
-        },
-        {
-          name: "prereq";
-          writable: true;
-          pda: {
-            seeds: [
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
               {
-                kind: "const";
-                value: [112, 114, 101, 81, 50, 50, 53];
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
               },
               {
-                kind: "account";
-                path: "signer";
+                "kind": "account",
+                "path": "user"
               }
-            ];
-          };
+            ]
+          }
         },
         {
-          name: "system_program";
-          address: "11111111111111111111111111111111";
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
-      ];
-      args: [
-        {
-          name: "github_username";
-          type: "bytes";
-        }
-      ];
+      ],
+      "args": []
     },
     {
-      name: "update";
-      discriminator: [219, 200, 88, 176, 158, 63, 253, 127];
-      accounts: [
+      "name": "create_collection",
+      "discriminator": [
+        156,
+        251,
+        92,
+        54,
+        233,
+        2,
+        16,
+        82
+      ],
+      "accounts": [
         {
-          name: "signer";
-          writable: true;
-          signer: true;
+          "name": "creator",
+          "writable": true,
+          "signer": true
         },
         {
-          name: "prereq";
-          writable: true;
+          "name": "collection",
+          "writable": true,
+          "signer": true
         },
         {
-          name: "system_program";
-          address: "11111111111111111111111111111111";
-        }
-      ];
-      args: [
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collection"
+              }
+            ]
+          }
+        },
         {
-          name: "github";
-          type: "bytes";
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
-      ];
-    }
-  ];
-  accounts: [
-    {
-      name: "Q2Prereq2024";
-      discriminator: [210, 203, 168, 103, 251, 233, 204, 6];
+      ],
+      "args": []
     },
     {
-      name: "Q2Prereq2025";
-      discriminator: [1, 231, 212, 91, 204, 178, 112, 25];
-    }
-  ];
-  errors: [
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "github",
+          "type": "string"
+        }
+      ]
+    },
     {
-      code: 6000;
-      name: "InvalidGithubAccount";
-      msg: "Invalid Github account";
-    }
-  ];
-  types: [
+      "name": "submit_rs",
+      "discriminator": [
+        77,
+        124,
+        82,
+        163,
+        21,
+        133,
+        181,
+        206
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collection"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
     {
-      name: "Q2Prereq2024";
-      type: {
-        kind: "struct";
-        fields: [
+      "name": "submit_ts",
+      "discriminator": [
+        137,
+        241,
+        199,
+        223,
+        125,
+        33,
+        85,
+        217
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collection"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update",
+      "discriminator": [
+        219,
+        200,
+        88,
+        176,
+        158,
+        63,
+        253,
+        127
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "github",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "ApplicationAccount",
+      "discriminator": [
+        222,
+        181,
+        17,
+        200,
+        212,
+        149,
+        64,
+        88
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "PreReqTsNotCompleted",
+      "msg": "TS submission not completed."
+    },
+    {
+      "code": 6001,
+      "name": "PreReqTsAlreadyCompleted",
+      "msg": "TS submission already completed."
+    },
+    {
+      "code": 6002,
+      "name": "PreReqRsAlreadyCompleted",
+      "msg": "Rust submission already completed."
+    },
+    {
+      "code": 6003,
+      "name": "PreReqRsNotInTimeWindow",
+      "msg": "Submission not allowed."
+    }
+  ],
+  "types": [
+    {
+      "name": "ApplicationAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
           {
-            name: "github";
-            type: "bytes";
+            "name": "user",
+            "type": "pubkey"
           },
           {
-            name: "key";
-            type: "pubkey";
-          }
-        ];
-      };
-    },
-    {
-      name: "Q2Prereq2025";
-      type: {
-        kind: "struct";
-        fields: [
-          {
-            name: "github";
-            type: "bytes";
+            "name": "bump",
+            "type": "u8"
           },
           {
-            name: "key";
-            type: "pubkey";
+            "name": "pre_req_ts",
+            "type": "bool"
+          },
+          {
+            "name": "pre_req_rs",
+            "type": "bool"
+          },
+          {
+            "name": "github",
+            "type": "string"
           }
-        ];
-      };
+        ]
+      }
     }
-  ];
-};
+  ]
+}
 
 export const IDL: Turbin3Prereq = {
-  address: "Trb3aEx85DW1cEEvoqEaBkMn1tfmNEEEPaKzLSu4YAv",
-  metadata: {
-    name: "turbine_prereq",
-    version: "0.1.0",
-    spec: "0.1.0",
-    description: "Created with Anchor",
+  "address": "TRBZyQHB3m68FGeVsqTK39Wm4xejadjVhP5MAZaKWDM",
+  "metadata": {
+    "name": "q3_pre_reqs_rs",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
   },
-  instructions: [
+  "instructions": [
     {
-      name: "clean",
-      discriminator: [250, 191, 56, 128, 150, 251, 1, 103],
-      accounts: [
-        {
-          name: "signer",
-          writable: true,
-          signer: true,
-        },
-        {
-          name: "prereq",
-          writable: true,
-        },
+      "name": "close",
+      "discriminator": [
+        98,
+        165,
+        201,
+        177,
+        108,
+        65,
+        206,
+        96
       ],
-      args: [],
-    },
-    {
-      name: "submit",
-      discriminator: [88, 166, 102, 181, 162, 127, 170, 48],
-      accounts: [
+      "accounts": [
         {
-          name: "signer",
-          writable: true,
-          signer: true,
+          "name": "user",
+          "writable": true
         },
         {
-          name: "prereq",
-          writable: true,
-          pda: {
-            seeds: [
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
               {
-                kind: "const",
-                value: [112, 114, 101, 81, 50, 50, 53],
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
               },
               {
-                kind: "account",
-                path: "signer",
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_collection",
+      "discriminator": [
+        156,
+        251,
+        92,
+        54,
+        233,
+        2,
+        16,
+        82
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
               },
-            ],
-          },
+              {
+                "kind": "account",
+                "path": "collection"
+              }
+            ]
+          }
         },
         {
-          name: "system_program",
-          address: "11111111111111111111111111111111",
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
         },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
       ],
-      args: [
-        {
-          name: "github_username",
-          type: "bytes",
-        },
+      "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
       ],
-    },
-    {
-      name: "update",
-      discriminator: [219, 200, 88, 176, 158, 63, 253, 127],
-      accounts: [
+      "accounts": [
         {
-          name: "signer",
-          writable: true,
-          signer: true,
+          "name": "user",
+          "writable": true,
+          "signer": true
         },
         {
-          name: "prereq",
-          writable: true,
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
         },
         {
-          name: "system_program",
-          address: "11111111111111111111111111111111",
-        },
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
       ],
-      args: [
+      "args": [
         {
-          name: "github",
-          type: "bytes",
-        },
+          "name": "github",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "submit_rs",
+      "discriminator": [
+        77,
+        124,
+        82,
+        163,
+        21,
+        133,
+        181,
+        206
       ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collection"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
     },
+    {
+      "name": "submit_ts",
+      "discriminator": [
+        137,
+        241,
+        199,
+        223,
+        125,
+        33,
+        85,
+        217
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "collection"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mpl_core_program",
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update",
+      "discriminator": [
+        219,
+        200,
+        88,
+        176,
+        158,
+        63,
+        253,
+        127
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "account",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  114,
+                  101,
+                  113,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "github",
+          "type": "string"
+        }
+      ]
+    }
   ],
-  accounts: [
+  "accounts": [
     {
-      name: "Q2Prereq2024",
-      discriminator: [210, 203, 168, 103, 251, 233, 204, 6],
-    },
-    {
-      name: "Q2Prereq2025",
-      discriminator: [1, 231, 212, 91, 204, 178, 112, 25],
-    },
+      "name": "ApplicationAccount",
+      "discriminator": [
+        222,
+        181,
+        17,
+        200,
+        212,
+        149,
+        64,
+        88
+      ]
+    }
   ],
-  errors: [
+  "errors": [
     {
-      code: 6000,
-      name: "InvalidGithubAccount",
-      msg: "Invalid Github account",
+      "code": 6000,
+      "name": "PreReqTsNotCompleted",
+      "msg": "TS submission not completed."
     },
-  ],
-  types: [
     {
-      name: "Q2Prereq2024",
-      type: {
-        kind: "struct",
-        fields: [
+      "code": 6001,
+      "name": "PreReqTsAlreadyCompleted",
+      "msg": "TS submission already completed."
+    },
+    {
+      "code": 6002,
+      "name": "PreReqRsAlreadyCompleted",
+      "msg": "Rust submission already completed."
+    },
+    {
+      "code": 6003,
+      "name": "PreReqRsNotInTimeWindow",
+      "msg": "Submission not allowed."
+    }
+  ],
+  "types": [
+    {
+      "name": "ApplicationAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
           {
-            name: "github",
-            type: "bytes",
+            "name": "user",
+            "type": "pubkey"
           },
           {
-            name: "key",
-            type: "pubkey",
-          },
-        ],
-      },
-    },
-    {
-      name: "Q2Prereq2025",
-      type: {
-        kind: "struct",
-        fields: [
-          {
-            name: "github",
-            type: "bytes",
+            "name": "bump",
+            "type": "u8"
           },
           {
-            name: "key",
-            type: "pubkey",
+            "name": "pre_req_ts",
+            "type": "bool"
           },
-        ],
-      },
-    },
-  ],
-};
+          {
+            "name": "pre_req_rs",
+            "type": "bool"
+          },
+          {
+            "name": "github",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
